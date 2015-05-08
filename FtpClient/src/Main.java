@@ -1,8 +1,14 @@
+import reciever.CommandReciever;
+import reciever.DataReciever;
+import sender.FTPsender;
+
 
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		FTPsender send = new FTPsender();
+		CommandReciever cmd = new CommandReciever();
+		DataReciever data = new DataReciever();
 
 	}
 
