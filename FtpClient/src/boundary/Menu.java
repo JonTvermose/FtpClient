@@ -19,10 +19,11 @@ public class Menu {
 
 	public String showMenu() {
 		System.out.println("****************************************************");
-		System.out.println("MENU:");
-		System.out.println("Godtagne kommandoer: LIST, FILE, QUIT.");
-		System.out.println("Eventuel anden indtastning sendes til server.");
-		System.out.println("");
+		System.out.println("MENU - Godtagne kommandoer:");
+		System.out.println("> LIST");
+		System.out.println("> RETR");
+		System.out.println("> QUIT");
+		System.out.println("> Eventuel anden indtastning sendes til server. (CWD, CDUP, etc.)");
 		System.out.println("****************************************************");
 		return scan.nextLine();
 	}

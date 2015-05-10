@@ -48,11 +48,11 @@ public class Controller {
 						break;
 					case "QUIT":
 						send.sendCommand("QUIT");
-						Thread.sleep(500); // Afventer "godnat-besked" fra serveren.
+						readerThread.join(); // Afventer "godnat-besked" fra serveren.
 						active = false;
 						menu.exit();
 						break;
-					case "FILE":
+					case "RETR":
 						String fileName = menu.getFileName();
 						String savePath = menu.getSavePath();
 						send.sendCommand("PASV");
@@ -69,7 +69,6 @@ public class Controller {
 			} else {
 				menu.login(false);
 			}
-			readerThread.join();
 
 		} catch (UnknownHostException e) {
 			System.out.println("FEJL!: Kunne ikke identificere host.");
