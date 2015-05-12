@@ -1,6 +1,9 @@
 package controller;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -62,6 +65,13 @@ public class Controller {
 						Thread dataThread = new Thread(data);
 						dataThread.start();
 						break;
+					case "MAX_VALUE":
+						try {
+							menu.show("Højeste værdi aflæst: " + readFile(menu.getReadPath()));							
+						} catch (FileNotFoundException e){
+							menu.show("Filen findes ikke.");
+						}
+						break;
 					default:
 						send.sendCommand(choice);
 					}
@@ -83,10 +93,18 @@ public class Controller {
 		} 
 	}
 
+	private String readFile(String path) throws FileNotFoundException {
+			try (BufferedReader br = new BufferedReader(new FileReader(new File(path)));){
+				return br.readLine();
+			} catch (IOException e) {
+				throw new FileNotFoundException();
+			}
+		}
+
 	public void start() throws InterruptedException{
+		String host = menu.getHost();
 		String user = menu.getUser();
 		String pass = menu.getPass();
-		String host = menu.getHost();
 		connect(user, pass, host);
 	}
 }

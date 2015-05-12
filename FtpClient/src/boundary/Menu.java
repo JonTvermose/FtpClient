@@ -23,6 +23,7 @@ public class Menu {
 		System.out.println("> LIST");
 		System.out.println("> RETR");
 		System.out.println("> QUIT");
+		System.out.println("> MAX_VALUE");
 		System.out.println("> Eventuel anden indtastning sendes til server. (CWD, CDUP, etc.)");
 		System.out.println("****************************************************");
 		return scan.nextLine();
@@ -69,6 +70,12 @@ public class Menu {
 		System.out.println("*****************************");
 		System.out.println("*** Programmet afsluttes. ***");	
 		System.out.println("*****************************");
+	}
+
+	public String getReadPath() {
+		System.out.println("");
+		System.out.println("Indtast readPath: (f.eks. \"C:/Users/Jon/Desktop/maxnumber.txt\")");
+		return scan.nextLine();
 	}
 
 }
