@@ -47,6 +47,7 @@ public class DataReciever implements Runnable {
 			while ((bytesRead = inputStream.read(buffer)) != -1) {
 				outputStream.write(buffer, 0, bytesRead);
 			}
+			System.out.println("Filen: " + fileName + " er hentet: " + fil.getAbsolutePath());
 		} catch (FileNotFoundException e){
 			System.out.println("Filen: " + fileName + " blev ikke fundet.");
 			fil.delete();
@@ -54,8 +55,5 @@ public class DataReciever implements Runnable {
 			System.out.println("Der skete en fejl, filen: " + fileName + " slettes.");
 			fil.delete();
 		}
-		System.out.println("Filen: " + fileName + " er hentet: " + fil.getAbsolutePath());
 	}
-	
-
 }
