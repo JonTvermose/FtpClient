@@ -67,7 +67,7 @@ public class Controller {
 						break;
 					case "MAX_VALUE":
 						try {
-							menu.show("Højeste værdi aflæst: " + readFile(menu.getReadPath()));							
+							menu.print(readFile(menu.getReadPath()));							
 						} catch (FileNotFoundException e){
 							menu.show("Filen findes ikke.");
 						}
@@ -93,12 +93,17 @@ public class Controller {
 		} 
 	}
 
-	private String readFile(String path) throws FileNotFoundException {
+	private ArrayList<String> readFile(String path) throws FileNotFoundException {
+		ArrayList<String> out = new ArrayList<String>();
+		String line;
 			try (BufferedReader br = new BufferedReader(new FileReader(new File(path)));){
-				return br.readLine();
+				while ((line = br.readLine()) != null){
+					out.add(line);
+				}
 			} catch (IOException e) {
 				throw new FileNotFoundException();
 			}
+			return out;
 		}
 
 	public void start() throws InterruptedException{

@@ -78,4 +78,11 @@ public class Menu {
 		return scan.nextLine();
 	}
 
+	public void print(ArrayList<String> readFile) {
+		System.out.println("Sensorstatus + højeste værdi:");
+		for (String s : readFile){
+			System.out.println(s);
+		}
+	}
+
 }
